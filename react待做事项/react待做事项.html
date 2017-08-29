@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example">
+
+</div>
+<script type="text/babel">
+  var ToDoInput=React.createClass({
+    handleChange:function(){
+      var content=this.refs.txt.value;
+      console.log(content);
+      this.props.funcAdd(content)
+    },
+    render:function(){
+      return <div>
+      <h1>待做事项列表</h1>
+      <br/>
+      <input type="text" ref="txt"/>
+      <button onClick={this.handleChange}>Add</button>
+      </div>
+    }
+  })
+  var ToDoList=React.createClass({
+    displayList:function(){
+      console.log(this.props.list);
+      return this.props.list.map(function(content,index){
+        console.log(content,index);
+        return (<ToDoItem delete={this.props.funcDelete} ct={content} id={index} key={index}/>)
+      }.bind(this))
+    },
+    render:function(){
+      return <ul>
+       {this.displayList()}
+      </ul>
+    }
+  })
+  var ToDoItem=React.createClass({
+    handleClick:function(){
+      console.log(this.props.id);
+      this.props.delete(this.props.id)
+    },
+    getContent(){
+      return <div><button onClick={this.handleClick}>delete</button> <span>{this.props.ct}</span></div>
+    },
+    render:function(){
+      return <li>
+        {this.getContent()}
+      </li>
+    }
+  })
+  var ToDoBox=React.createClass({
+    getInitialState:function(){
+      return {data:[]}
+    },
+    addHandle:function(content){
+      var list=this.state.data;
+      list.push(content);
+      this.setState({data:list});
+      console.log(this.state.data);
+    },
+
+    deleteHandle:function(index){
+      var list=this.state.data;
+      list.splice(index,1);
+      this.setState({data:list});
+    },
+    render:function(){
+      return <div>
+        <ToDoInput funcAdd={this.addHandle}/>
+        <ToDoList funcDelete={this.deleteHandle} list={this.state.data}/>
+      </div>
+    }
+  })
+  ReactDOM.render(
+    <ToDoBox/>,
+    document.getElementById("example")
+  );
+
+</script>
+</body>
+</html>
