@@ -1,0 +1,51 @@
+//window.onload=function(){
+	var adv={
+	  div:null,//保存广告div
+	  //总距离,总时间,总步数,步长,间隔
+	  DISTANCE:0,DURATION:2000,STEPS:200,step:0,interval:0,
+	  moved:0,//已经移动的步数
+	  timer:null,//定时器序号
+	  WAIT:3000,//等待时间
+	  init(){//获取数据，计算数据
+		//获取id为msg的div，保存在div属性中
+		this.div=document.getElementById("msg");
+		//获得div计算后的高转为浮点数保存在DISTANCE属性
+		this.DISTANCE=parseFloat(
+		  getComputedStyle(this.div).height);
+		//计算step:DISTANCE/STEPS
+		this.step=this.DISTANCE/this.STEPS;
+		//计算interval:DURATION/STEPS
+		this.interval=this.DURATION/this.STEPS;
+		//找到div下的a，绑定单击事件为move
+		this.div.querySelector("a").onclick=
+							  this.move.bind(this,-1);
+		this.move(1);//启动上移
+	  },
+	  move(dir){//启动上移
+		//防止动画叠加
+		if(this.timer==null)//如果timer为null
+		  //启动周期性定时器,将moveUpStep作为任务，间隔为interval,序号保存在timer
+		  this.timer=setInterval(
+			this.moveStep.bind(this,dir),this.interval);
+	  },
+	  moveStep(dir){//向上移动一个step
+		//获得div计算后的bottom转为浮点数保存在变量bottom中
+		var bottom=parseFloat(
+		  getComputedStyle(this.div).bottom);
+		bottom+=dir*this.step;//bottom+step
+		//设置div的bottom为bottom+"px"
+		this.div.style.bottom=bottom+"px";
+		this.moved++;//moved+1;
+		if(this.moved==this.STEPS){//如果移动步数用完
+		  clearInterval(this.timer);//停止定时器
+		  this.timer=null;//清空timer
+		  this.moved=0;//计步变量归零
+		  if(dir==-1)//如果下移结束
+			//启动一次性定时器，等待WAIT时间后，启动上移
+			setTimeout(this.move.bind(this,1),this.WAIT);
+		}
+	  }
+	}
+	//adv.init();
+//}
+adv.init();

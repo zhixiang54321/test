@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/register.css"/>
+</head>
+<body>
+  <div class="box header">
+    <a href="#" class="logo">
+      <img src="images/top_03.jpg" alt=""/>
+    </a>
+    <h1 class="welcome">欢迎注册</h1>
+  </div>
+  <div class="box">
+    <div class="container">
+      <form id="form-register">
+        <div class="form-group">
+          <label class="control-label" for="uname">用户名：</label>
+          <input class="form-control" id="uname" name="uname" required minlength="3" maxlength="9" autofocus autocomplete="off">
+          <span class="help-block">用户名可以包含数字、字母</span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="upwd">密码：</label>
+          <input class="form-control" id="upwd" name="upwd" required minlength="6" maxlength="12" type="password">
+          <span class="help-block">密码长度在6~12位之间</span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="umail">用户邮箱：</label>
+          <input class="form-control" id="umail" name="umail" type="email">
+          <span class="help-block">请填写合法的邮箱格式</span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="url">个人主页：</label>
+          <input class="form-control" id="url" name="url" type="url">
+          <span class="help-block">请填写合法的邮箱格式</span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="age">年龄：</label>
+          <input class="form-control" id="age" name="age" type="age">
+          <span class="help-block">请填写合法的邮箱格式</span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="data">出生日期：</label>
+          <input class="form-control" id="data" name="data" type="data">
+          <span class="help-block">请填写合法的邮箱格式</span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label"></label>
+          <input type="button" class="bt-submit" value="提交注册信息">
+        </div>
+      </form>
+      <!--做背景的视频-->
+      <video class="bg-video" src="res/snow.mp4" autoplay loop muted></video>
+    </div>
+  </div>
+  <div class="box footer"></div>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

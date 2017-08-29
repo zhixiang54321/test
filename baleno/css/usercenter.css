@@ -1,0 +1,68 @@
+ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd {
+  margin:0px;
+  padding:0px;
+  border:none;
+  list-style:none;
+}
+#main .affix {
+  width: 210px;
+  float: left;
+}
+.affix h3 {
+  font-size: 1.5em;
+  margin: 1em 1em;
+}
+.affix li {
+  line-height: 2em;
+  padding-left: 3em;
+}
+.affix li.active a {
+  color: #e4393c;
+  font-weight: bold;
+}
+#main .right {
+  margin-left: 210px;
+  min-height: 400px;
+  padding: 1em;
+}
+.right > div {
+  display: none;
+}
+.right > div.active {
+  display: block;
+}
+#table-order {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+#table-order th,
+#table-order td {
+  padding: 6px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+#table-order thead tr {
+  background: #e7e7e7;
+}
+#table-order tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+#table-order tbody td:nth-child(1){
+  text-align: left;
+}
+#table-order tbody td img{
+  width: 60px;
+}
+
+#bt-lottery {
+  display: block;
+  margin: 1em auto;
+  padding: 10px 20px;
+}
+#canvas-lottery {
+  display: block;
+  margin: 1em auto;
+}
+

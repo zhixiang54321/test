@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> 用户中心 — 京东商城 </title>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="img/favicon.ico">
+  <!--<link rel="stylesheet" href="css/jd.css">-->
+  <link rel="stylesheet" href="css/usercenter.css">
+  <link rel="stylesheet" href="Baleno_index.css">
+</head>
+
+<body>
+<div id="header"></div>
+
+<div id="main" style="width:1210px">
+  <!--左侧的附加导航-->
+  <div class="affix">
+    <h3>用户中心</h3>
+    <ul>
+      <li><a href="#my-order">我的订单</a></li>
+      <li class="active"><a href="#buy-stat-native">消费统计(原生版)</a></li>
+      <li><a href="#buy-stat-fc">消费统计(FC版)</a></li>
+      <li><a href="#luck-lottery">幸运抽奖</a></li>
+    </ul>
+  </div>
+  <!--右侧的主体-->
+  <div class="right">
+    <div id="my-order">
+      <table id="table-order">
+        <thead>
+        <tr>
+          <th>订单信息</th>
+          <th>收货人</th>
+          <th>订单金额</th>
+          <th>
+            <select id="selectTime">
+              <option value="m1">最近一个月</option>
+              <option value="m3">最近三个月</option>
+              <option value="m6">最近半年</option>
+              <option value="m12">最近一年</option>
+            </select>
+          </th>
+          <th>
+            <select id="selectStatus">
+              <option value="9">所有状态</option>
+              <option value="1">等待付款</option>
+              <option value="2">发货中</option>
+              <option value="3">已签收</option>
+              <option value="4">废单</option>
+            </select>
+          </th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div id="buy-stat-native">
+      <svg id="svg-buy-stat" style="border:1px solid #aaa;">
+        <defs id="barEffect">
+          <!--特效对象，如渐变对象-->
+        </defs>
+        <g fill="transparent" stroke="#333" stroke-width="1">
+
+        </g>
+		<g id="wz" stroke=""></g>
+		<g id="val" stroke=""></g>
+      </svg>
+    </div>
+    <div id="buy-stat-fc">消费统计2</div>
+    <div id="luck-lottery" class="active">
+      <button disabled id="bt-lottery">抽奖统计信息加载中...</button>
+      <canvas id="canvas-lottery"></canvas>
+    </div>
+  </div>
+</div>
+
+<div id="footer_bottom"></div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/fusioncharts.js"></script>
+<script src="js/fusioncharts.charts.js"></script>
+<script src="js/usercenter.js"></script>
+
+</body>
+</html>
